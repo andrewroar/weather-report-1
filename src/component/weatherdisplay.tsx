@@ -1,24 +1,22 @@
 import React, {useState, useEffect,FunctionComponent} from 'react'
 import { useGlobalContext } from '../MyGlobalContext'
 import axios, {AxiosResponse} from "axios"
-import WeatherBox from "./weatherbox"
 
 interface Props{
 
 }
 
 
-
 const WeatherDisplay:React.FunctionComponent<Props>= props => {
     const { target,setTarget} = useGlobalContext()
 
-    interface weatherstructure{
+    interface weatherprops{
         temp:string;
         cloud?:string;
         icon?:string;
     }
 
-    const [weatherData,setWeatherData] = useState<weatherstructure>({"cloud":"","temp":"","icon":""})
+    const [weatherData,setWeatherData] = useState<weatherprops>({"cloud":"","temp":"","icon":""})
     const [dataMounted,setDataMounted] = useState<boolean>(false)
 
     const  fetchData = async()=>{
@@ -44,7 +42,7 @@ const WeatherDisplay:React.FunctionComponent<Props>= props => {
             
             {dataMounted && <div className="weather-display-context">
             <h2>{target}</h2>
-                <p>{weatherData.temp}</p>
+                <p>{weatherData.temp} °C</p>
                 <p>{weatherData.cloud}</p>
                 <img src={`http://openweathermap.org/img/wn/${weatherData.icon}@2x.png`} alt="Weather icon"></img>
                 </div>}
