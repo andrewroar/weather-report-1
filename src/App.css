@@ -1,0 +1,36 @@
+.weather-box {
+  display: flex;
+  flex-direction: row;
+  margin-top: 5%;
+}
+
+.weather-box div {
+  margin: 0 20px 0 20px;
+}
+
+.country-list {
+}
+
+.border {
+  border: 2px solid green;
+  border-radius: 15px;
+}
+
+.search-bar * {
+  margin: 20px;
+}
+
+.weather-display {
+  width: 70%;
+}
+.weather-display * {
+  margin: 0 10px 0 10px;
+}
+
+.weather-display-context * {
+  margin-top: 15px;
+}
+
+.margin10 {
+  margin: 0 10% 0 10%;
+}
