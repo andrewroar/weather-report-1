@@ -1,5 +1,7 @@
 import React, {useState} from 'react'
 import { useGlobalContext } from '../MyGlobalContext'
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
+import { faTimes } from '@fortawesome/free-solid-svg-icons'
 
 
 interface Props {
@@ -44,7 +46,6 @@ const List:React.FC<Props>= props => {
     const deleteTarget = (element:any)=>{
         console.log(element.target.parentElement.textContent)
         const newList = countries.filter(item=>{return item !== element.target.parentElement.textContent})
-      
         setCountries(newList) 
     }
     
@@ -52,7 +53,7 @@ const List:React.FC<Props>= props => {
         <div className="border search-bar">
         <button onClick={handleClick}>Add Country</button>
         <input type="text" onChange={handleChange}></input>
-        { countries.map(country=><div className="country-list"><p onClick={setAsTarget}>{country}<i onClick={deleteTarget} className="fas fa-xs fa-times"></i></p></div>) }
+        { countries.map(country=><div className="country-list"><p onClick={setAsTarget}>{country}<FontAwesomeIcon className="cross-icon" onClick={deleteTarget} icon={faTimes} /></p></div>) }
         </div>
         
             
